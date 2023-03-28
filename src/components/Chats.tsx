@@ -31,11 +31,15 @@ export function Chats({ search }: { search: string }) {
           className={chatId === chat.id ? "active" : undefined}
           sx={(theme) => ({
             marginTop: 1,
+            borderRadius: 12,
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            transition: "all 0.2s ease",
             "&:hover, &.active": {
               backgroundColor:
                 theme.colorScheme === "dark"
                   ? theme.colors.dark[6]
                   : theme.colors.gray[1],
+              transform: "scale(1.02)",
             },
           })}
         >
@@ -45,6 +49,12 @@ export function Chats({ search }: { search: string }) {
               color="teal"
               chat={chat}
               label={chat.description}
+              sx={{
+                paddingLeft: 16,
+                paddingRight: 16,
+                paddingTop: 12,
+                paddingBottom: 12,
+              }}
             />
           </Link>
           <Menu shadow="md" width={200} keepMounted>
